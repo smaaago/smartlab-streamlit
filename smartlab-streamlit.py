@@ -3,6 +3,13 @@ import json
 import pandas as pd
 import streamlit as st
 
+code = st.text_input('Введите код доступа')
+if code != st.secrets['auth']['password']:
+    st.warning('Неверный код. Доступ запрещён.')
+    st.stop()
+    
+st.success("Доступ разрешён!")
+
 json_file_name = 'smartlab-ticker-stats.json'
 with open(json_file_name, 'r', encoding='utf-8') as file:
     data = json.load(file)
