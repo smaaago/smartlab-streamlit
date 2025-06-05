@@ -10,7 +10,7 @@ if code != st.secrets['auth']['password']:
     
 st.success("Доступ разрешён!")
 
-json_file_name = 'smartlab-ticker-stats.json'
+json_file_name = 'smartlab-stats.json'
 with open(json_file_name, 'r', encoding='utf-8') as file:
     data = json.load(file)
 
