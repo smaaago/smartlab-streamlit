@@ -10,7 +10,7 @@ if code != st.secrets['auth']['password']:
     
 st.success("Доступ разрешён!")
 
-json_file_name = 'smartlab-stats.json'
+json_file_name = 'smartlab-Qstats.json'
 with open(json_file_name, 'r', encoding='utf-8') as file:
     data = json.load(file)
 
@@ -21,7 +21,7 @@ selected_key = st.selectbox('Тикеры', list(data.keys()))
 
 if selected_key:
     ticker_stats = pd.DataFrame.from_dict(data[selected_key], orient='index')
-    ticker_stats.columns = ticker_stats.loc['year']
-    ticker_stats.drop('year', inplace=True)
+    # ticker_stats.columns = ticker_stats.loc['year']
+    # ticker_stats.drop('year', inplace=True)
     st.write(f'Выбранный тикер: {selected_key}')
     st.dataframe(ticker_stats)
